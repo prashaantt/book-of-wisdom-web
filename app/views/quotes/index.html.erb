@@ -15,7 +15,9 @@
     <td><%= quote.title %></td>
     <td><%= quote.body %></td>
     <td><%= quote.url %></td>
+  <% unless quote.user_id.blank? %>
     <td><%= User.find(quote.user_id).username %></td>
+    <% end %>
     <td><%= link_to 'Show', quote %></td>
     <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
     <td><%= link_to 'Destroy', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
